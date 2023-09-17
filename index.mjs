@@ -13,6 +13,8 @@ async function buildServer() {
   server.get('/protected',
     { preValidation: server.authenticate },
     (request, reply) => {
+        console.table(request.user.scope.split(' '));
+
         return { route: 'Protected route' };
   });
 
